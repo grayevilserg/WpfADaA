@@ -1,0 +1,61 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2.Classes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <DockPanel Grid.Row="0" >
+            <StackPanel Orientation="Horizontal">
+            <TextBox Name="SearchTBox" DockPanel.Dock="Left"
+                     Width="250" Margin="5" />
+            <Button Name="SearchButton" DockPanel.Dock="Left"
+                    Content="Just do it"
+                    Width="100" Margin="5" Click="Button_Click"/>
+            </StackPanel>
+        </DockPanel>
+
+        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1" 
+                Margin="5" Padding="5" >
+            <DataGrid Name="MainContentWindow"  AutoGenerateColumns="False" CanUserAddRows="False" ColumnWidth="150"
+                CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False"
+                CanUserResizeRows="False" CanUserSortColumns="False" ItemsSource="{Binding Path=UserPropertys}" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="User Name" Binding="{Binding Path=UserName}"/>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding Path=FirstName}"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding Path=LastName}"/>
+                </DataGrid.Columns>
+                
+            </DataGrid>
+        </Border>
+
+    </Grid>
+    <!--<TextBlock Text="Username" Margin="5"
+                       Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Text="{Binding User.UserName}" Margin="5"
+                       Grid.Row="1" Grid.Column="0"/>
+                    <TextBlock Text="First Name" Margin="5"
+                       Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Text="{Binding FirstName}" Margin="5"
+                       Grid.Row="1" Grid.Column="1"/>
+                    <TextBlock Text="Last Name" Margin="5"
+                       Grid.Row="0" Grid.Column="2"/>
+                    <TextBlock Text="{Binding LastName}" Margin="5"
+                       Grid.Row="1" Grid.Column="2"/>
+                    <TextBlock Text="Email" Margin="5"
+                       Grid.Row="0" Grid.Column="3"/>-->
+    <!--<TextBlock Text="{Binding Email}" Margin="5"
+                       Grid.Row="1" Grid.Column="3"/>
+            <TextBlock Text="Creation Date" Margin="5"
+                       Grid.Row="0" Grid.Column="4"/>
+            <TextBlock Text="{Binding CreationDate}" Margin="5"
+                       Grid.Row="1" Grid.Column="4"/>-->
+</Window>
